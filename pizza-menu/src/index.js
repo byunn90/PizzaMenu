@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Pizzas from "../src/images/spinaci.jpg";
 
 const pizzaData = [
   {
@@ -48,12 +49,26 @@ const pizzaData = [
 
 function App() {
   return (
-    <>
+    <div>
       <h1>Hello React!</h1>
-      <p>JS</p>
-    </>
+      <Pizza />
+      <Pizza />
+      <Pizza />
+      <Pizza />
+    </div>
   );
 }
+
+function Pizza() {
+  return (
+    <div>
+      <img src={Pizzas}></img>
+      <h2>Pizza Spinaci</h2>
+      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
+    </div>
+  );
+}
+
 // This is how we render how app in the dom ⬇
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
