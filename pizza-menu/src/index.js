@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const pizzaData = [
   {
     name: "Focaccia",
@@ -42,3 +45,19 @@ const pizzaData = [
     soldOut: false,
   },
 ];
+
+function App() {
+  return (
+    <>
+      <h1>Hello React!</h1>
+      <p>JS</p>
+    </>
+  );
+}
+// This is how we render how app in the dom ⬇
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
