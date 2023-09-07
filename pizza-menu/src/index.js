@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Pizzas from "../src/images/spinaci.jpg";
+import spinaciPizza from "../src/images/spinaci.jpg";
+import fungiPizza from "../src/images/funghi.jpg";
+import "./index.css";
 
 const pizzaData = [
   {
@@ -58,15 +60,44 @@ function App() {
 }
 
 function Header() {
-  return <h1 style={{ color: "red" }}>Fast React Pizza Co.</h1>;
+  // const myStyle = {
+  //   color: "red",
+  //   fontSize: "42px",
+  //   textTransform: "uppercase",
+  // };
+  return (
+    <header className="header footer">
+      <h1>Fast React Pizza Co.</h1>
+    </header>
+  );
 }
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name="Pizza Spinachi"
+        ingredients="Tomato, mozarella, spinach, and rocotta cheese"
+        photoName={spinaciPizza}
+        price={10}
+      />
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mozarella, mushrooms, and onion"
+        photoName={fungiPizza}
+        price={12}
+      />
+    </main>
+  );
+}
+function Pizza(props) {
+  console.log(props);
+  return (
+    <div>
+      <img src={props.photoName} alt={props.name}></img>
+      <h3>{props.name}</h3>
+      <p>{props.ingredients}</p>
+      <span>{props.price + 3}</span>
     </div>
   );
 }
@@ -79,20 +110,13 @@ function Footer() {
   // if (hour >= openHours && hour <= closeHour) alert("We're currently open");
   // else alert("Sorry we're closed");
   return (
-    <footer>{new Date().toLocaleTimeString()} We're currently open</footer>
+    <footer className="footer">
+      {new Date().toLocaleTimeString()} We're currently open
+    </footer>
   );
   // return React.createElement("footer", null, "We're currently open!");
 }
 const Test = () => {};
-function Pizza() {
-  return (
-    <div>
-      <img src={Pizzas}></img>
-      <h2>Pizza Spinaci</h2>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-    </div>
-  );
-}
 
 // This is how we render how app in the dom ⬇
 const root = ReactDOM.createRoot(document.getElementById("root"));
