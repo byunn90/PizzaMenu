@@ -84,14 +84,15 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      {/*Note This mapping data is very important dont forget   */}
       {numPizzas > 0 ? (
         <ul className="pizzas">
-          {pizzaData.map((pizza) => (
+          {pizzas.map((pizza) => (
             <Pizza pizzaObj={pizza} key={pizza.name} />
           ))}
         </ul>
-      ) : null}
+      ) : (
+        <p>We're still working on our menu. Please come back later 😆</p>
+      )}
 
       {/* <Pizza
         name="Pizza Spinaci"
@@ -129,12 +130,18 @@ function Footer() {
   console.log(isOpen);
   // if (hour >= openHours && hour <= closeHour) alert("We're currently open");
   // else alert("Sorry we're closed");
+  if (!isOpen)
+    return (
+      <p>
+        We're happy to welcome you between {openHour}:00 and {closeHour}:00.
+      </p>
+    );
   return (
     <footer className="footer">
       <div className="order">
         {isOpen && (
           <p>
-            =We're open untill {closeHour}:00. Come visit us or order online.
+            We're happy to welcome you between {openHour}:00 and {closeHour}:00.
           </p>
         )}
       </div>
