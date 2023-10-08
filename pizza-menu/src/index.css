@@ -152,6 +152,9 @@ body {
 /* *************** */
 
 .footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
   font-size: 1.4rem;
 }
 
