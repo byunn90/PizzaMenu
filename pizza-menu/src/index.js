@@ -111,6 +111,7 @@ function Menu() {
 }
 function Pizza(props) {
   console.log(props);
+  if (props.pizzaObj.soldOut) return null;
   return (
     <li className="pizza">
       <img src={props.pizzaObj.photoName} alt={props.name} />
@@ -130,27 +131,33 @@ function Footer() {
   console.log(isOpen);
   // if (hour >= openHours && hour <= closeHour) alert("We're currently open");
   // else alert("Sorry we're closed");
-  if (!isOpen)
-    return (
-      <p>
-        We're happy to welcome you between {openHour}:00 and {closeHour}:00.
-      </p>
-    );
+  // if (!isOpen) return <p>CLOSED</p>;
   return (
     <footer className="footer">
-      <div className="order">
-        {isOpen && (
-          <p>
-            We're happy to welcome you between {openHour}:00 and {closeHour}:00.
-          </p>
-        )}
-      </div>
-      <button className="btn">Order</button>
+      {isOpen ? (
+        <Order closeHour={closeHour} />
+      ) : (
+        <p>
+          We're happy to welcome you between {openHour}:00 and {closeHour}:00.
+        </p>
+      )}
     </footer>
   );
   // return React.createElement("footer", null, "We're currently open!");
 }
-const Test = () => {};
+
+function Order(props) {
+  return (
+    <div className="order">
+      <p>
+        We're happy to welcome you between {props.closeHour}:00. Come visit us
+        or order online.
+      </p>
+
+      <button className="btn">Order</button>
+    </div>
+  );
+}
 
 // This is how we render how app in the dom ⬇
 const root = ReactDOM.createRoot(document.getElementById("root"));
