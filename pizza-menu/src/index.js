@@ -123,7 +123,8 @@ function Pizza(props) {
     </li>
   );
 }
-function Footer() {
+function Footer(props) {
+  console.log(props);
   const hour = new Date().getHours();
   const openHour = 12;
   const closeHour = 22;
