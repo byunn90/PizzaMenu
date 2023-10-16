@@ -29,5 +29,5 @@ Fast React Pizza Co is a simple practice project. It displays a menu of various 
 
 _(You can provide links to your project's repository and live demo here.)_
 
-- [GitHub Repository](https://github.com/your-username/your-repo)
+- [GitHub Repository](https://github.com/byunn90/PizzaMenu/tree/main)
 - [Live Demo](https://your-live-demo-url)
